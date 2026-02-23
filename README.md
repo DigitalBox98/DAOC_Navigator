@@ -153,7 +153,7 @@ This program is free software: you can redistribute it and/or modify it under
 the terms of the **GNU General Public License version 3** (or any later version)
 as published by the Free Software Foundation.
 
-See the [`LICENSE`](DAOC_Navigator_Core/DAOC_Navigator_Core/LICENSE) file for the full text.
+See the [`LICENSE`](LICENSE) file for the full text.
 
 *Dark Age of Camelot is a registered trademark of Electronic Arts / Broadsword Online Games.
 This project is not affiliated with or endorsed by EA or Broadsword.*
