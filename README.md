@@ -15,11 +15,14 @@ The repository contains three projects:
 
 ## Screenshots
 
-Avalonia version :
+NIF model viewer / Avalonia version :
 <img width="1021" height="796" alt="avalonia_navigator" src="https://github.com/user-attachments/assets/76ffd18c-82cc-4391-8872-5d9abcd0d479" />
 
-ImGUI version : 
+NIF model viewer / ImGUI version : 
 <img width="1018" height="794" alt="imgui_navigator" src="https://github.com/user-attachments/assets/d9df5442-88c0-4942-9636-2965328d7108" />
+
+NPK archive viewer 
+<img width="1016" height="797" alt="avalonia_npk" src="https://github.com/user-attachments/assets/4b5352c6-2f3f-45fb-b3d6-a06d75c20c6d" />
 
 ---
 
