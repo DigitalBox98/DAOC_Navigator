@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOC_Navigator_Core", "DAOC_Navigator_Core\DAOC_Navigator_Core.csproj", "{6BC20FDD-4030-4FF9-80FC-2D79270F5F71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAOC_Navigator_Core.Tests", "DAOC_Navigator_Core.Tests\DAOC_Navigator_Core.Tests.csproj", "{4E07BD04-E302-4A44-8114-2982989F3C6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BC20FDD-4030-4FF9-80FC-2D79270F5F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC20FDD-4030-4FF9-80FC-2D79270F5F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BC20FDD-4030-4FF9-80FC-2D79270F5F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC20FDD-4030-4FF9-80FC-2D79270F5F71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E07BD04-E302-4A44-8114-2982989F3C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E07BD04-E302-4A44-8114-2982989F3C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E07BD04-E302-4A44-8114-2982989F3C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E07BD04-E302-4A44-8114-2982989F3C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6FD2D785-139D-4058-96DA-189EA245BF6A}
+	EndGlobalSection
+EndGlobal

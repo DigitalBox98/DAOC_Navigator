@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="À propos de l'application"
+        x:Class="DAOC_Navigator_Avalonia.Views.AboutWindow"
+        Width="400"
+        Height="300"
+        WindowStartupLocation="CenterScreen"
+        TransparencyLevelHint="Transparent"
+        ExtendClientAreaToDecorationsHint="True">
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="80">
+            <TextBlock Text="DAOC Navigator" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+            <TextBlock Text="Version 1.0" Margin="0,0,0,5"/>
+            <TextBlock Text="(c) 2026 DigitalBox" Margin="0,0,0,5"/>
+            <Button Content="Fermer" Click="CloseButton_Click" x:Name="CloseButton"/>
+        </StackPanel>
+</Window>

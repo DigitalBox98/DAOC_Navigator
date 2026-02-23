@@ -1,0 +1,154 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DAOC_Navigator_Avalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rootns="clr-namespace:DAOC_Navigator_Avalonia"
+        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="768"
+        x:Class="DAOC_Navigator_Avalonia.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Title="DAOC_Navigator_Avalonia"
+        Width="1024"
+        Height="768">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <DockPanel>
+
+        <Menu DockPanel.Dock="Top">
+          <MenuItem Header="_File">
+            <MenuItem Header="_Open" Command="{Binding MyActionCommand}" CommandParameter="model"/>
+            <MenuItem Header="_Open NIF" Command="{Binding MyActionCommand}" CommandParameter="nif"/>
+            <MenuItem Header="_Open NPK" Command="{Binding MyActionCommand}" CommandParameter="open"/>
+            <MenuItem Header="_About" Click="ShowAboutDialog"/>
+            <Separator/>
+            <MenuItem Header="_Quit" Click="OnQuit"/>
+          </MenuItem>
+          <MenuItem Header="_Options">
+            <MenuItem Header="Define DAOC folder" Command="{Binding MyActionCommand}"  CommandParameter="folder"/>
+          </MenuItem>
+          <MenuItem Header="_Views">
+            <MenuItem Header="Camera" Click="OnCamera"/>
+            <MenuItem Header="Options" Click="OnOptions"/>
+            <MenuItem Header="Monster"  Click="OnMonster"/>
+          </MenuItem>
+        </Menu>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" /> <!-- Première ligne occupant tout l'espace restant -->
+                <RowDefinition Height="Auto" /> <!-- Deuxième ligne avec la hauteur ajustée au contenu -->
+            </Grid.RowDefinitions>
+
+            <rootns:MainControlWindowGLRendering Focusable="True" Name="MyControl" Yaw="{Binding Yaw, Mode=TwoWay}" Pitch="{Binding Pitch, Mode=TwoWay}" Sensitivity="{Binding Sensitivity,  Mode=TwoWay}" Speed="{Binding Speed,  Mode=TwoWay}" CameraX="{Binding CameraX, Mode=TwoWay}" CameraY="{Binding CameraY, Mode=TwoWay}" CameraZ="{Binding CameraZ, Mode=TwoWay}" WireFrame="{Binding WireFrame, Mode=TwoWay}"  Status="{Binding Status, Mode=TwoWay}" MonsterId="{Binding MonsterId,  Mode=TwoWay}" SelectedColor="{Binding SelectedColor}"/>
+
+
+
+
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" /> 
+                </Grid.RowDefinitions>
+
+                <Expander Grid.Row="0" Background="#33000000" VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="MyCamera" >
+                <Expander.Header>
+                    Camera
+                </Expander.Header>
+                    <StackPanel Width="250" HorizontalAlignment="Right" VerticalAlignment="Center">
+
+                        <StackPanel>
+                            <TextBlock Text="Camera position (X,Y,Z): " Margin="1"/>
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBox x:Name="XTextBox" Text="{Binding CameraX}" Width="30"/>
+                                <TextBox x:Name="YTextBox" Text="{Binding CameraY}" Width="30"/>
+                                <TextBox x:Name="ZTextBox" Text="{Binding CameraZ}" Width="30"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Yaw: "/>  <TextBlock Text="{Binding Yaw}"/>
+                        </StackPanel>
+                        <Slider Maximum="{Binding MaxYaw}" Value="{Binding Yaw}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Pitch: "/> <TextBlock Text="{Binding Pitch}"/>
+                        </StackPanel>
+                        <Slider Minimum="-90" Maximum="{Binding MaxPitch}" Value="{Binding Pitch}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Sensitivity: "/>  <TextBlock Text="{Binding Sensitivity}"/>
+                        </StackPanel>
+                        <Slider Maximum="4" Value="{Binding Sensitivity}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Speed: "/>  <TextBlock Text="{Binding Speed}"/>
+                        </StackPanel>
+                        <Slider Maximum="10" Value="{Binding Speed}" />
+
+                        <CheckBox IsChecked="{Binding WireFrame}">Wireframe</CheckBox>
+
+                    </StackPanel>
+                </Expander>
+
+                <Expander Grid.Row="2" Background="#33000000" VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="MyMonster" >
+                <Expander.Header>
+                    Monster
+                </Expander.Header>
+                    <StackPanel Grid.Row="0" Width="250" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+
+                            <Button Command="{Binding MyActionCommand}" CommandParameter="prev">
+                                <Button.Content>
+                                    <StackPanel Orientation="Vertical">
+                                        <Image Source="avares://DAOC_Navigator_Avalonia/Resources/images/prev.png"/>
+                                        <TextBlock Text="Previous"/>
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+
+                            <TextBox Name="Monster" Watermark="MonsterId" Text="{Binding MonsterId}"/>
+
+                            <Button Command="{Binding MyActionCommand}" CommandParameter="next">
+                                <Button.Content>
+                                    <StackPanel Orientation="Vertical">
+                                        <Image Source="avares://DAOC_Navigator_Avalonia/Resources/images/next.png"/>
+                                        <TextBlock Text="Next"/>
+                                    </StackPanel>
+                                </Button.Content>
+                            </Button>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+
+                <Expander Grid.Row="1" Background="#33000000" VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="MyOptions" >
+                <Expander.Header>
+                    Options
+                </Expander.Header>
+                    <StackPanel Grid.Row="0" Width="250" HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>Background</TextBlock>
+                            <ColorPicker Width="200" Height="30" Name="colorPicker" HorizontalAlignment="Right" Color="{Binding SelectedColor, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
+
+            </Grid>
+
+
+            <!-- The status bar -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <TextBlock Text="{Binding Status}" Margin="5"/>
+            </StackPanel>
+
+        </Grid>
+
+
+
+    </DockPanel>
+</Window>
