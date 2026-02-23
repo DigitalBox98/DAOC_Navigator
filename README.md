@@ -15,7 +15,11 @@ The repository contains three projects:
 
 ## Screenshots
 
+Avalonia version :
+<img width="1021" height="796" alt="avalonia_navigator" src="https://github.com/user-attachments/assets/76ffd18c-82cc-4391-8872-5d9abcd0d479" />
 
+ImGUI version : 
+<img width="1018" height="794" alt="imgui_navigator" src="https://github.com/user-attachments/assets/d9df5442-88c0-4942-9636-2965328d7108" />
 
 ---
 
